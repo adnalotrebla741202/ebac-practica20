@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        
+    </style>
+
+    <title>Práctica 20</title>
+
+</head>
+<body>
+
+    <script>
+
+        /*
+            1.Classes (ejercicio 1).
+              Crea una clase libre con su constructor y campos, tiene que tener 3 métodos que impriman algún resultado
+              en consola y al menos uno debe de usar los campos de la clase. Inicializar una instancia de la clase, 
+              usar sus diferentes métodos e imprimir minimo 1 de sus campos en consola.
+        */
+
+        // Definición de la clase "Book"
+        class Book 
+        {
+            // Constructor de la clase
+            constructor(title, author, year) 
+            {
+                this.title = title;     // Campo para el título del libro
+                this.author = author;   // Campo para el autor del libro
+                this.year = year;       // Campo para el año de publicación
+            }
+
+            // Método para imprimir información del libro
+            printInfo() 
+            {
+                console.log(`Título: ${this.title}, Autor: ${this.author}, Año: ${this.year}`);
+            }
+
+            // Método para imprimir solo el título del libro
+            printTitle() 
+            {
+                console.log(`El título del libro es: ${this.title}`);
+            }
+
+            // Método para imprimir un mensaje de lectura
+            readingMessage() 
+            {
+                console.log(`¡Estoy leyendo "${this.title}" de ${this.author}!`);
+            }
+        }
+
+        // Inicializando instancias de la clase
+        const myBook01 = new Book("Cien años de soledad", "Gabriel García Márquez", 1967);
+        const myBook02 = new Book("La ladrona de libros", "Markus Zusak", 2005);
+
+        console.log("1. Classes.");
+        console.log("\n");
+
+        // Usando los diferentes métodos de la clase
+        myBook01.printInfo();         // Imprime la información del libro
+        myBook01.printTitle();        // Imprime solo el título
+        myBook01.readingMessage();    // Imprime un mensaje de lectura
+
+        // Imprimiendo uno de los campos de la clase
+        console.log(`Campo título: ${myBook01.title}`);
+
+        console.log("\n");
+
+        // Usando los diferentes métodos de la clase
+        myBook02.printInfo();         // Imprime la información del libro
+        myBook02.printTitle();        // Imprime solo el título
+        myBook02.readingMessage();    // Imprime un mensaje de lectura
+
+        // Imprimiendo uno de los campos de la clase
+        console.log(`Campo autor: ${myBook02.author}`);
+        
+        console.log("\n\n\n\n\n");
+
+
+
+
+
+        /*        
+            2.Classes (ejercicio 2).
+              Crea una clase llamada 'Vehicle' que represente un vehículo. El constructor debe aceptar un parámetro: 
+              'brand' (marca del vehículo). La clase debe tener un método:
+
+              displayInfo(): Imprime en la consola la información del vehículo, incluyendo la marca.
+        */
+
+        class Vehicle
+        {
+            constructor(brand) 
+            {
+                this.brand = brand;
+            }
+
+            displayInfo() 
+            {
+                console.log(`Información del vehículo:\nMarca: ${this.brand}`);
+            }
+        }
+
+        // Inicializando instancias de la clase
+        const myVehicle01 = new Vehicle('Toyota');
+        const myVehicle02 = new Vehicle("Ford");
+
+        console.log("2. Classes.");
+        console.log("\n");
+
+        myVehicle01.displayInfo(); // Imprime: La información del vehículo incluyendo la marca.
+
+        console.log("\n");
+
+        myVehicle02.displayInfo(); // Imprime: La información del vehículo incluyendo la marca.
+
+        console.log("\n\n\n\n\n");
+
+
+
+
+
+        /*
+            3.Classes (ejercicio 3).
+              Crea una clase llamada 'Person' que represente una persona. El constructor debe aceptar dos parámetros: 
+              'name' (nombre de la persona) y 'age' (edad de la persona). La clase debe tener un método:
+
+              introduceYourself(): Imprime en la consola un mensaje de presentación de la persona, incluyendo su nombre y edad.
+        */
+
+        class Person 
+        {
+            constructor(name, age) 
+            {
+                this.name = name;
+                this.age = age;
+            }
+
+            introduceYourself() 
+            {
+                console.log(`Hola, soy ${this.name} y tengo ${this.age} años.`);
+            }
+        }
+
+        // // Inicializando instancias de la clase
+        const person1 = new Person('Juan', 30);
+        const person2 = new Person("Alberto", 49);
+
+        console.log("3. Classes.");
+        console.log("\n");
+
+        person1.introduceYourself();  // Imprime en la consola un mensaje de presentación de la persona, incluyendo su nombre y edad.
+
+        console.log("\n");
+        
+        person2.introduceYourself();  // Imprime en la consola un mensaje de presentación de la persona, incluyendo su nombre y edad.
+
+        console.log("\n\n\n\n\n");
+
+
+
+
+
+        /*
+            4.LocalStorage.
+              Crea una función llamada 'saveToLocalStorage' que reciba dos parámetros: 'key' y 'value'. La función debe 
+              guardar el parámetro 'value' en LocalStorage utilizando el parámetro 'key', y luego imprimir un mensaje
+              indicando que se ha guardado la información.
+        */
+
+        const saveToLocalStorage = (key, value) =>
+        {
+            // Guardar el valor en LocalStorage
+            localStorage.setItem(key, value);
+    
+            // Imprimir un mensaje de confirmación
+            console.log(`La información se ha guardado:\n${key}: ${value}`);
+        };
+
+        console.log("4. LocalStorage.");
+        console.log("\n");
+
+        saveToLocalStorage('nombre', 'Juan');
+
+        console.log("\n");
+
+        saveToLocalStorage('pasatiempo', 'Leer');
+
+        console.log("\n\n\n\n\n");
+
+
+
+
+
+        /*
+            5.Web Storage.
+              Crea una función de flecha que reciba un parametro userName. La función va a guardar en localStorage el 
+              valor de userName y despues va a imprimir en la consola ese valor pero obteniendolo del localStorage.
+        */
+
+        const saveUserName = userName => 
+        {
+            localStorage.setItem('userName', userName);
+            console.log(localStorage.getItem('userName'));
+        };
+
+        console.log("5. Web Storage.");
+        console.log("\n");
+
+        saveUserName('Pedro');
+
+        console.log("\n");
+
+        saveUserName("Ulises");
+
+    </script>
+
+</body>
+</html>
